@@ -5,6 +5,8 @@
  */
 package aps.loop.java;
 
+import aps.loop.java.apresentacao.frmPrincipal;
+
 /**
  *
  * @author admin
@@ -17,7 +19,8 @@ public class APSLOOPJAVA
      */
     public static void main(String[] args)
     {
-        // TODO code application logic here
+        frmPrincipal frmP = new frmPrincipal();
+        frmP.setVisible(true);
     }
     
 }
