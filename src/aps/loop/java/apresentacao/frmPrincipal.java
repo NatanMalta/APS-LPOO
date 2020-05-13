@@ -1,5 +1,7 @@
 package aps.loop.java.apresentacao;
 
+import aps.loop.java.modelo.ControleJanelas;
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -32,9 +34,9 @@ public class frmPrincipal extends javax.swing.JFrame
     {
 
         lblNomeJogo = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
+        btnOpcoes = new javax.swing.JButton();
+        btnJogar = new javax.swing.JButton();
+        btnSair = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("JOGO");
@@ -42,16 +44,23 @@ public class frmPrincipal extends javax.swing.JFrame
         lblNomeJogo.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
         lblNomeJogo.setText("JOGO");
 
-        jButton1.setText("Opções");
+        btnOpcoes.setText("Opções");
 
-        jButton2.setText("Jogar");
-
-        jButton3.setText("Sair");
-        jButton3.addActionListener(new java.awt.event.ActionListener()
+        btnJogar.setText("Jogar");
+        btnJogar.addActionListener(new java.awt.event.ActionListener()
         {
             public void actionPerformed(java.awt.event.ActionEvent evt)
             {
-                jButton3ActionPerformed(evt);
+                btnJogarActionPerformed(evt);
+            }
+        });
+
+        btnSair.setText("Sair");
+        btnSair.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
+                btnSairActionPerformed(evt);
             }
         });
 
@@ -67,9 +76,9 @@ public class frmPrincipal extends javax.swing.JFrame
                     .addGroup(layout.createSequentialGroup()
                         .addGap(94, 94, 94)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addComponent(btnOpcoes, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btnJogar, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btnSair, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addContainerGap(94, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -78,11 +87,11 @@ public class frmPrincipal extends javax.swing.JFrame
                 .addGap(51, 51, 51)
                 .addComponent(lblNomeJogo)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jButton2)
+                .addComponent(btnJogar)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jButton1)
+                .addComponent(btnOpcoes)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jButton3)
+                .addComponent(btnSair)
                 .addContainerGap(50, Short.MAX_VALUE))
         );
 
@@ -90,10 +99,15 @@ public class frmPrincipal extends javax.swing.JFrame
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_jButton3ActionPerformed
-    {//GEN-HEADEREND:event_jButton3ActionPerformed
+    private void btnSairActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_btnSairActionPerformed
+    {//GEN-HEADEREND:event_btnSairActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton3ActionPerformed
+    }//GEN-LAST:event_btnSairActionPerformed
+
+    private void btnJogarActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_btnJogarActionPerformed
+    {//GEN-HEADEREND:event_btnJogarActionPerformed
+        ControleJanelas objJanelas = new ControleJanelas();
+    }//GEN-LAST:event_btnJogarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -141,9 +155,9 @@ public class frmPrincipal extends javax.swing.JFrame
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
+    private javax.swing.JButton btnJogar;
+    private javax.swing.JButton btnOpcoes;
+    private javax.swing.JButton btnSair;
     private javax.swing.JLabel lblNomeJogo;
     // End of variables declaration//GEN-END:variables
 }
