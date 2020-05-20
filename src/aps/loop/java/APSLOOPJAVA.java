@@ -22,5 +22,4 @@ public class APSLOOPJAVA
         frmPrincipal frmP = new frmPrincipal();
         frmP.setVisible(true);
     }
-    
 }
