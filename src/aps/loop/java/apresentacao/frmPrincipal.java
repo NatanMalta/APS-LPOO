@@ -101,7 +101,7 @@ public class frmPrincipal extends javax.swing.JFrame
 
     private void btnSairActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_btnSairActionPerformed
     {//GEN-HEADEREND:event_btnSairActionPerformed
-        // TODO add your handling code here:
+        System.exit(WIDTH);
     }//GEN-LAST:event_btnSairActionPerformed
 
     private void btnJogarActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_btnJogarActionPerformed
