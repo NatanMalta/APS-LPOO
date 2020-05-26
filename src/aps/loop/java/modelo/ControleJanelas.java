@@ -4,9 +4,10 @@ import aps.loop.java.apresentacao.frmGame;
 
 public class ControleJanelas
 {
+    frmGame frmG;
     public ControleJanelas()
     {
-        frmGame Game = new frmGame(null, true);
-        Game.setVisible(true);
+        frmGame frmG = new frmGame(null, true);
+        frmG.setVisible(true);
     }
 }
