@@ -5,13 +5,15 @@
  */
 package aps.loop.java.apresentacao;
 
+import aps.loop.java.modelo.ControleCena;
+
 /**
  *
  * @author admin
  */
 public class frmGame extends javax.swing.JDialog
 {
-
+    private ControleCena controleCena;
     /**
      * Creates new form Game
      */
@@ -28,10 +30,9 @@ public class frmGame extends javax.swing.JDialog
      */
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
-    private void initComponents()
-    {
+    private void initComponents() {
 
-        jScrollPane1 = new javax.swing.JScrollPane();
+        jspPainel = new javax.swing.JScrollPane();
         txaHistoria = new javax.swing.JTextArea();
         btnOpcao1 = new javax.swing.JButton();
         btnOpcao3 = new javax.swing.JButton();
@@ -40,37 +41,48 @@ public class frmGame extends javax.swing.JDialog
         lblTitulo = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowActivated(java.awt.event.WindowEvent evt) {
+                formWindowActivated(evt);
+            }
+        });
 
         txaHistoria.setEditable(false);
         txaHistoria.setColumns(20);
         txaHistoria.setRows(5);
         txaHistoria.setText("Lorem ipsum dolor sit amet, consectetur adipiscing \nelit. Proin ac purus posuere, faucibus tellus sed, \nvarius est. Praesent pulvinar elit nec vulputate \nsuscipit. Nam sit amet gravida ipsum. \nMaecenas molestie urna vitae.");
-        jScrollPane1.setViewportView(txaHistoria);
+        jspPainel.setViewportView(txaHistoria);
         txaHistoria.getAccessibleContext().setAccessibleName("área de texto");
         txaHistoria.getAccessibleContext().setAccessibleDescription("História");
         txaHistoria.getAccessibleContext().setAccessibleParent(this);
 
         btnOpcao1.setText("Alternativa 1");
-        btnOpcao1.addActionListener(new java.awt.event.ActionListener()
-        {
-            public void actionPerformed(java.awt.event.ActionEvent evt)
-            {
+        btnOpcao1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnOpcao1ActionPerformed(evt);
             }
         });
 
         btnOpcao3.setText("Alternativa 3");
-        btnOpcao3.addActionListener(new java.awt.event.ActionListener()
-        {
-            public void actionPerformed(java.awt.event.ActionEvent evt)
-            {
+        btnOpcao3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnOpcao3ActionPerformed(evt);
             }
         });
 
         btnOpcao2.setText("Alternativa 2");
+        btnOpcao2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnOpcao2ActionPerformed(evt);
+            }
+        });
 
         btnOpcao4.setText("Alternativa 4");
+        btnOpcao4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnOpcao4ActionPerformed(evt);
+            }
+        });
 
         lblTitulo.setFont(new java.awt.Font("Dialog", 1, 36)); // NOI18N
         lblTitulo.setText("Titulo");
@@ -84,7 +96,7 @@ public class frmGame extends javax.swing.JDialog
                     .addGroup(layout.createSequentialGroup()
                         .addGap(51, 51, 51)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 290, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jspPainel, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 290, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                                     .addComponent(btnOpcao1, javax.swing.GroupLayout.DEFAULT_SIZE, 134, Short.MAX_VALUE)
@@ -104,7 +116,7 @@ public class frmGame extends javax.swing.JDialog
                 .addGap(28, 28, 28)
                 .addComponent(lblTitulo)
                 .addGap(18, 18, 18)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jspPainel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnOpcao1)
@@ -120,16 +132,46 @@ public class frmGame extends javax.swing.JDialog
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
+    private void limpar()
+    {
+        this.txaHistoria.setText("");
+        this.btnOpcao1.setText("");
+        this.btnOpcao1.setVisible(false);
+        this.btnOpcao2.setText("");
+        this.btnOpcao2.setVisible(false);
+        this.btnOpcao3.setText("");
+        this.btnOpcao3.setVisible(false);
+        this.btnOpcao4.setText("");
+        this.btnOpcao4.setVisible(false);
+    }
+
     private void btnOpcao1ActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_btnOpcao1ActionPerformed
     {//GEN-HEADEREND:event_btnOpcao1ActionPerformed
-        // TODO add your handling code here:
+        this.executaEscolha(0);
     }//GEN-LAST:event_btnOpcao1ActionPerformed
 
     private void btnOpcao3ActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_btnOpcao3ActionPerformed
     {//GEN-HEADEREND:event_btnOpcao3ActionPerformed
-        // TODO add your handling code here:
+        this.executaEscolha(2);
     }//GEN-LAST:event_btnOpcao3ActionPerformed
 
+    private void formWindowActivated(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowActivated
+        this.limpar();
+        this.controleCena = new ControleCena();
+    }//GEN-LAST:event_formWindowActivated
+
+    private void btnOpcao2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnOpcao2ActionPerformed
+        this.executaEscolha(1);
+    }//GEN-LAST:event_btnOpcao2ActionPerformed
+
+    private void btnOpcao4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnOpcao4ActionPerformed
+        this.executaEscolha(3);
+    }//GEN-LAST:event_btnOpcao4ActionPerformed
+
+    private void executaEscolha(int num)
+    {
+        controleCena.executaEscolha(num);
+    }
     /**
      * @param args the command line arguments
      */
@@ -190,7 +232,7 @@ public class frmGame extends javax.swing.JDialog
     private javax.swing.JButton btnOpcao2;
     private javax.swing.JButton btnOpcao3;
     private javax.swing.JButton btnOpcao4;
-    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jspPainel;
     private javax.swing.JLabel lblTitulo;
     private javax.swing.JTextArea txaHistoria;
     // End of variables declaration//GEN-END:variables
