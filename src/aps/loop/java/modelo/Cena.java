@@ -9,7 +9,11 @@ public class Cena
     private String inicial = "0";
     public Cena()
     {
-        this.limpar();
+        if(this.escolhas != null)
+        {
+            this.limpar();
+        }
+        
     }
 
     public void limpar()

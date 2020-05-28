@@ -20,6 +20,6 @@ public class APSLOOPJAVA
     public static void main(String[] args)
     {
         frmPrincipal frmP = new frmPrincipal();
-        frmP.setVisible(true);
+        frmP.setVisible(true);   
     }
 }
