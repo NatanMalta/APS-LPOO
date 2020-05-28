@@ -5,11 +5,17 @@
  */
 package aps.loop.java.apresentacao;
 
+import aps.loop.java.modelo.Cena;
 import aps.loop.java.modelo.ControleCena;
 import aps.loop.java.modelo.Escolha;
+import java.awt.Dimension;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JOptionPane;
+import javax.swing.SwingUtilities;
+import javax.swing.text.DefaultCaret;
+import static javax.swing.text.DefaultCaret.ALWAYS_UPDATE;
 
 /**
  *
@@ -18,6 +24,7 @@ import java.util.logging.Logger;
 public class frmGame extends javax.swing.JDialog
 {
     private ControleCena controleCena;
+    private Cena cena;
     /**
      * Creates new form Game
      */
@@ -25,6 +32,10 @@ public class frmGame extends javax.swing.JDialog
     {
         super(parent, modal);
         initComponents();
+        this.limpar();
+        //this.setSize(391, 340);
+        //setLocationRelativeTo(null);
+        
     }
 
     /**
@@ -59,8 +70,9 @@ public class frmGame extends javax.swing.JDialog
 
         txaHistoria.setEditable(false);
         txaHistoria.setColumns(20);
+        txaHistoria.setLineWrap(true);
         txaHistoria.setRows(5);
-        txaHistoria.setText("Lorem ipsum dolor sit amet, consectetur adipiscing \nelit. Proin ac purus posuere, faucibus tellus sed, \nvarius est. Praesent pulvinar elit nec vulputate \nsuscipit. Nam sit amet gravida ipsum. \nMaecenas molestie urna vitae.");
+        txaHistoria.setWrapStyleWord(true);
         jspPainel.setViewportView(txaHistoria);
         txaHistoria.getAccessibleContext().setAccessibleName("área de texto");
         txaHistoria.getAccessibleContext().setAccessibleDescription("História");
@@ -107,33 +119,37 @@ public class frmGame extends javax.swing.JDialog
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(50, 50, 50)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addComponent(btnOpcao1, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btnOpcao3, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(22, 22, 22)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(btnOpcao2, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btnOpcao4, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addComponent(jspPainel, javax.swing.GroupLayout.PREFERRED_SIZE, 857, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(41, Short.MAX_VALUE))
+                        .addGap(50, 50, 50)
+                        .addComponent(btnOpcao3, javax.swing.GroupLayout.PREFERRED_SIZE, 290, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(206, 206, 206)
+                        .addComponent(btnOpcao4, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(layout.createSequentialGroup()
+                            .addGap(317, 317, 317)
+                            .addComponent(btnOpcao2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                            .addGap(50, 50, 50)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(jspPainel, javax.swing.GroupLayout.PREFERRED_SIZE, 520, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(btnOpcao1, javax.swing.GroupLayout.PREFERRED_SIZE, 261, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                .addContainerGap(50, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(28, 28, 28)
-                .addComponent(jspPainel, javax.swing.GroupLayout.PREFERRED_SIZE, 349, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 45, Short.MAX_VALUE)
+                .addGap(16, 16, 16)
+                .addComponent(jspPainel, javax.swing.GroupLayout.PREFERRED_SIZE, 201, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(30, 30, 30)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnOpcao1)
                     .addComponent(btnOpcao2))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnOpcao3)
-                    .addComponent(btnOpcao4))
-                .addGap(53, 53, 53))
+                .addGap(11, 11, 11)
+                .addComponent(btnOpcao3)
+                .addGap(144, 144, 144)
+                .addComponent(btnOpcao4))
         );
 
         pack();
@@ -144,6 +160,7 @@ public class frmGame extends javax.swing.JDialog
     {
         this.txaHistoria.setText("");
         this.btnOpcao1.setText("");
+        this.btnOpcao1.setBounds(50, 247, 134, 32);
         this.btnOpcao1.setVisible(false);
         this.btnOpcao2.setText("");
         this.btnOpcao2.setVisible(false);
@@ -152,11 +169,75 @@ public class frmGame extends javax.swing.JDialog
         this.btnOpcao4.setText("");
         this.btnOpcao4.setVisible(false);
     }
+    
+    
+    private void setTextCena()
+    {
+        this.limpar();
+        
+        this.txaHistoria.setText(this.cena.getHistoria());
+        txaHistoria.setCaretPosition(0);
+        
+        List<Escolha> escolhas = this.cena.getEscolhas();
+        
+        int sizeEscolhas = escolhas.size();
+        
+        
+        if(sizeEscolhas == 1)
+        {
+            JOptionPane.showMessageDialog (null, "babaca");
+            //btnOpcao1.setSize(txaHistoria.getSize().width, btnOpcao1.getSize().height);
+            
+            //btnOpcao1.setBounds(50, 247, 290, 32);
+            //btnOpcao1.setMinimumSize(new Dimension(txaHistoria.getSize().width, btnOpcao1.getSize().height));
+            //SwingUtilities.updateComponentTreeUI(this);
+            
+            
+            
+            
+            
+            
+            
+        }
+        
+        if(0 < sizeEscolhas)
+        {
+            Escolha get = escolhas.get(0);
+            btnOpcao1.setText(get.getNome());
+            btnOpcao1.setVisible(true);
+        }
+        
+        if(1 < sizeEscolhas)
+        {
+            Escolha get = escolhas.get(1);
+            btnOpcao2.setText(get.getNome());
+            btnOpcao2.setVisible(true);
+        }
+        
+        if(2 < sizeEscolhas)
+        {
+            Escolha get = escolhas.get(2);
+            btnOpcao3.setText(get.getNome());
+            btnOpcao3.setVisible(true);
+        }
+        
+        if(3 < sizeEscolhas)
+        {
+            Escolha get = escolhas.get(3);
+            btnOpcao4.setText(get.getNome());
+            btnOpcao4.setVisible(true);
+        }
+        
+        
+        
+    }
 
     private void btnOpcao1ActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_btnOpcao1ActionPerformed
     {//GEN-HEADEREND:event_btnOpcao1ActionPerformed
-        this.limpar();
+        
         this.executaEscolha(0);
+        setTextCena();
+        /*this.limpar();
         txaHistoria.setText(this.controleCena.cena.getHistoria());
                 List<Escolha> escolhas = this.controleCena.cena.getEscolhas();
                 
@@ -189,9 +270,11 @@ public class frmGame extends javax.swing.JDialog
                         continue;
                     }
                     
+                    long numLinhas = this.controleCena.cena.getNumLinhas();
+                    this.txaHistoria.setRows((int) numLinhas);
                     
                 }
-        
+        */
         
         
         
@@ -201,20 +284,18 @@ public class frmGame extends javax.swing.JDialog
         
     }//GEN-LAST:event_btnOpcao1ActionPerformed
 
-    private void btnOpcao3ActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_btnOpcao3ActionPerformed
-    {//GEN-HEADEREND:event_btnOpcao3ActionPerformed
-        
-    }//GEN-LAST:event_btnOpcao3ActionPerformed
-
     private void formWindowActivated(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowActivated
+        
         
         
     }//GEN-LAST:event_formWindowActivated
 
     private void btnOpcao2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnOpcao2ActionPerformed
         
-        this.limpar();
+        
         this.executaEscolha(1);
+        setTextCena();
+        /*this.limpar();
         txaHistoria.setText(this.controleCena.cena.getHistoria());
                 List<Escolha> escolhas = this.controleCena.cena.getEscolhas();
                 
@@ -246,9 +327,10 @@ public class frmGame extends javax.swing.JDialog
                         btnOpcao4.setVisible(true);
                         continue;
                     }
-                    
-                    
+                    long numLinhas = this.controleCena.cena.getNumLinhas();
+                    this.txaHistoria.setRows((int) numLinhas);
                 }
+        */
     }//GEN-LAST:event_btnOpcao2ActionPerformed
 
     private void btnOpcao4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnOpcao4ActionPerformed
@@ -261,56 +343,25 @@ public class frmGame extends javax.swing.JDialog
         {
             this.limpar();
             this.controleCena = new ControleCena();
+            this.cena = this.controleCena.cena;
             
-            boolean montaCena = this.controleCena.cena.montaCena(this.controleCena.cena.lerCena(this.controleCena.cena.getInicial()));
-            System.out.println(montaCena);
-            if(montaCena){
-                txaHistoria.setText(this.controleCena.cena.getHistoria());
-                List<Escolha> escolhas = this.controleCena.cena.getEscolhas();
-                
-                
-                
-                
-                
-                
-                for (int i = 0; i < escolhas.size(); i++)
-                {
-                    
-                    Escolha get = escolhas.get(i);
-                    
-                    if(btnOpcao1.getText().equals("")){
-                        btnOpcao1.setText(get.getNome());
-                        btnOpcao1.setVisible(true);
-                        continue;
-                    }
-                    
-                    if(btnOpcao2.getText().equals("")){
-                        btnOpcao2.setText(get.getNome());
-                        btnOpcao2.setVisible(true);
-                        continue;
-                    }
-                    
-                    if(btnOpcao3.getText().equals("")){
-                        btnOpcao3.setText(get.getNome());
-                        btnOpcao3.setVisible(true);
-                        continue;
-                    }
-                    
-                    if(btnOpcao4.getText().equals("")){
-                        btnOpcao4.setText(get.getNome());
-                        btnOpcao4.setVisible(true);
-                        continue;
-                    }
-                    
-                    
-                }
-   
+            String lerCena = this.cena.lerCena(this.cena.getInicial());
+            
+            if(this.cena.montaCena(lerCena));
+            {
+                setTextCena();
             }
+           
         } catch (Exception ex)
         {
             Logger.getLogger(frmGame.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_formWindowOpened
+
+    private void btnOpcao3ActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_btnOpcao3ActionPerformed
+    {//GEN-HEADEREND:event_btnOpcao3ActionPerformed
+
+    }//GEN-LAST:event_btnOpcao3ActionPerformed
 
     private void executaEscolha(int num)
     {
@@ -369,7 +420,7 @@ public class frmGame extends javax.swing.JDialog
                     @Override
                     public void windowClosing(java.awt.event.WindowEvent e)
                     {
-                        System.exit(0);
+                       System.exit(0);                       
                     }
                 });
                 dialog.setVisible(true);

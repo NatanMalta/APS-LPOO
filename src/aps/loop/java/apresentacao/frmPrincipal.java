@@ -45,6 +45,13 @@ public class frmPrincipal extends javax.swing.JFrame
         lblNomeJogo.setText("JOGO");
 
         btnOpcoes.setText("Opções");
+        btnOpcoes.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
+                btnOpcoesActionPerformed(evt);
+            }
+        });
 
         btnJogar.setText("Jogar");
         btnJogar.addActionListener(new java.awt.event.ActionListener()
@@ -101,13 +108,18 @@ public class frmPrincipal extends javax.swing.JFrame
 
     private void btnSairActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_btnSairActionPerformed
     {//GEN-HEADEREND:event_btnSairActionPerformed
-        System.exit(WIDTH);
+        this.dispose();
     }//GEN-LAST:event_btnSairActionPerformed
 
     private void btnJogarActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_btnJogarActionPerformed
     {//GEN-HEADEREND:event_btnJogarActionPerformed
-        ControleJanelas objJanelas = new ControleJanelas();
+        ControleJanelas objJanelas = new ControleJanelas("Cena");
     }//GEN-LAST:event_btnJogarActionPerformed
+
+    private void btnOpcoesActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_btnOpcoesActionPerformed
+    {//GEN-HEADEREND:event_btnOpcoesActionPerformed
+         ControleJanelas objJanelas = new ControleJanelas("Cena");
+    }//GEN-LAST:event_btnOpcoesActionPerformed
 
     /**
      * @param args the command line arguments

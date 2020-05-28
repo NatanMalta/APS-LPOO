@@ -1,10 +1,12 @@
 package aps.loop.java.modelo;
 
 import java.util.*;
+import javax.swing.JOptionPane;
 
 public class Cena
 {
     private String historia;
+    private long numLinhasHistoria;
     private List<Escolha> escolhas;
     private String inicial = "0";
     public Cena()
@@ -31,6 +33,11 @@ public class Cena
     public List<Escolha> getEscolhas()
     {
         return this.escolhas;
+    }
+    
+    public long getNumLinhas()
+    {
+        return numLinhasHistoria;
     }
 
     public String getHistoria()
@@ -60,6 +67,8 @@ public class Cena
         String[] tratamento1 = cena.split("\\+", 2);
         if(tratamento1.length != 2) return false;//Erro
         this.setHistoria(tratamento1[0].replace("\t", ""));
+        this.numLinhasHistoria =  historia.chars().filter(ch -> ch == '\n').count();
+        
         String[] tratamento2 = tratamento1[1].split("\r\n", 0);
         for(int x = 0; x < tratamento2.length; x++)
         {
