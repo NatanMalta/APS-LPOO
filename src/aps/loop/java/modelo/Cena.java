@@ -9,6 +9,7 @@ public class Cena
     private String inicial = "0";
     public Cena()
     {
+        escolhas = new ArrayList<>();
         if(this.escolhas != null)
         {
             this.limpar();
@@ -56,15 +57,19 @@ public class Cena
     {
         if (cena.equals("")) return false;
         //Recebe a cena crua e a monta.
-        String[] tratamento1 = cena.split("\r\n", 2);
+        String[] tratamento1 = cena.split("\\+", 2);
         if(tratamento1.length != 2) return false;//Erro
-        this.setHistoria(tratamento1[0]);
-        String[] tratamento2 = tratamento1[1].split("\n", 0);
+        this.setHistoria(tratamento1[0].replace("\t", ""));
+        String[] tratamento2 = tratamento1[1].split("\r\n", 0);
         for(int x = 0; x < tratamento2.length; x++)
         {
-            String[] tratamentoEscolha = tratamento2[2].split(" ", 2);
+            if (tratamento2[x].equals("")){
+                continue;
+            }
+            String[] tratamentoEscolha = tratamento2[x].split(" ", 2);
             if(tratamentoEscolha.length != 2) return false;//Erro, formato da cena inválido.
-            this.escolhas.add(new Escolha(tratamentoEscolha[1], tratamentoEscolha[0]));
+            Escolha escolha = new Escolha(tratamentoEscolha[1], tratamentoEscolha[0]);
+            this.escolhas.add(escolha);
         }
         return true;//Nada de errado
     }

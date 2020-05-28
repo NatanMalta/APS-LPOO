@@ -6,6 +6,8 @@
 package aps.loop.java.apresentacao;
 
 import aps.loop.java.modelo.ControleCena;
+import aps.loop.java.modelo.Escolha;
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -48,6 +50,10 @@ public class frmGame extends javax.swing.JDialog
             public void windowActivated(java.awt.event.WindowEvent evt)
             {
                 formWindowActivated(evt);
+            }
+            public void windowOpened(java.awt.event.WindowEvent evt)
+            {
+                formWindowOpened(evt);
             }
         });
 
@@ -102,24 +108,24 @@ public class frmGame extends javax.swing.JDialog
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(50, 50, 50)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jspPainel, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 290, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                             .addComponent(btnOpcao1, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(btnOpcao3, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGap(22, 22, 22)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(btnOpcao2, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btnOpcao4, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(52, Short.MAX_VALUE))
+                            .addComponent(btnOpcao4, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(jspPainel, javax.swing.GroupLayout.PREFERRED_SIZE, 857, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(41, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(67, 67, 67)
-                .addComponent(jspPainel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addGap(28, 28, 28)
+                .addComponent(jspPainel, javax.swing.GroupLayout.PREFERRED_SIZE, 349, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 45, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnOpcao1)
                     .addComponent(btnOpcao2))
@@ -127,7 +133,7 @@ public class frmGame extends javax.swing.JDialog
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnOpcao3)
                     .addComponent(btnOpcao4))
-                .addContainerGap(69, Short.MAX_VALUE))
+                .addGap(53, 53, 53))
         );
 
         pack();
@@ -149,26 +155,162 @@ public class frmGame extends javax.swing.JDialog
 
     private void btnOpcao1ActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_btnOpcao1ActionPerformed
     {//GEN-HEADEREND:event_btnOpcao1ActionPerformed
+        this.limpar();
         this.executaEscolha(0);
+        txaHistoria.setText(this.controleCena.cena.getHistoria());
+                List<Escolha> escolhas = this.controleCena.cena.getEscolhas();
+                
+                for (int i = 0; i < escolhas.size(); i++)
+                {
+                    
+                    Escolha get = escolhas.get(i);
+                    
+                    if(btnOpcao1.getText().equals("")){
+                        btnOpcao1.setText(get.getNome());
+                        btnOpcao1.setVisible(true);
+                        continue;
+                    }
+                    
+                    if(btnOpcao2.getText().equals("")){
+                        btnOpcao2.setText(get.getNome());
+                        btnOpcao2.setVisible(true);
+                        continue;
+                    }
+                    
+                    if(btnOpcao3.getText().equals("")){
+                        btnOpcao3.setText(get.getNome());
+                        btnOpcao3.setVisible(true);
+                        continue;
+                    }
+                    
+                    if(btnOpcao4.getText().equals("")){
+                        btnOpcao4.setText(get.getNome());
+                        btnOpcao4.setVisible(true);
+                        continue;
+                    }
+                    
+                    
+                }
+        
+        
+        
+        
+        
+        
+        
+        
     }//GEN-LAST:event_btnOpcao1ActionPerformed
 
     private void btnOpcao3ActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_btnOpcao3ActionPerformed
     {//GEN-HEADEREND:event_btnOpcao3ActionPerformed
-        this.executaEscolha(2);
+        
     }//GEN-LAST:event_btnOpcao3ActionPerformed
 
     private void formWindowActivated(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowActivated
-        this.limpar();
-        this.controleCena = new ControleCena();
+        
+        
     }//GEN-LAST:event_formWindowActivated
 
     private void btnOpcao2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnOpcao2ActionPerformed
+        
+        this.limpar();
         this.executaEscolha(1);
+        txaHistoria.setText(this.controleCena.cena.getHistoria());
+                List<Escolha> escolhas = this.controleCena.cena.getEscolhas();
+                
+                for (int i = 0; i < escolhas.size(); i++)
+                {
+                    
+                    Escolha get = escolhas.get(i);
+                    
+                    if(btnOpcao1.getText().equals("")){
+                        btnOpcao1.setText(get.getNome());
+                        btnOpcao1.setVisible(true);
+                        continue;
+                    }
+                    
+                    if(btnOpcao2.getText().equals("")){
+                        btnOpcao2.setText(get.getNome());
+                        btnOpcao2.setVisible(true);
+                        continue;
+                    }
+                    
+                    if(btnOpcao3.getText().equals("")){
+                        btnOpcao3.setText(get.getNome());
+                        btnOpcao3.setVisible(true);
+                        continue;
+                    }
+                    
+                    if(btnOpcao4.getText().equals("")){
+                        btnOpcao4.setText(get.getNome());
+                        btnOpcao4.setVisible(true);
+                        continue;
+                    }
+                    
+                    
+                }
     }//GEN-LAST:event_btnOpcao2ActionPerformed
 
     private void btnOpcao4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnOpcao4ActionPerformed
         this.executaEscolha(3);
     }//GEN-LAST:event_btnOpcao4ActionPerformed
+
+    private void formWindowOpened(java.awt.event.WindowEvent evt)//GEN-FIRST:event_formWindowOpened
+    {//GEN-HEADEREND:event_formWindowOpened
+        try
+        {
+            this.limpar();
+            this.controleCena = new ControleCena();
+            
+            boolean montaCena = this.controleCena.cena.montaCena(this.controleCena.cena.lerCena(this.controleCena.cena.getInicial()));
+            System.out.println(montaCena);
+            if(montaCena){
+                txaHistoria.setText(this.controleCena.cena.getHistoria());
+                List<Escolha> escolhas = this.controleCena.cena.getEscolhas();
+                
+                
+                
+                
+                
+                
+                for (int i = 0; i < escolhas.size(); i++)
+                {
+                    
+                    Escolha get = escolhas.get(i);
+                    
+                    if(btnOpcao1.getText().equals("")){
+                        btnOpcao1.setText(get.getNome());
+                        btnOpcao1.setVisible(true);
+                        continue;
+                    }
+                    
+                    if(btnOpcao2.getText().equals("")){
+                        btnOpcao2.setText(get.getNome());
+                        btnOpcao2.setVisible(true);
+                        continue;
+                    }
+                    
+                    if(btnOpcao3.getText().equals("")){
+                        btnOpcao3.setText(get.getNome());
+                        btnOpcao3.setVisible(true);
+                        continue;
+                    }
+                    
+                    if(btnOpcao4.getText().equals("")){
+                        btnOpcao4.setText(get.getNome());
+                        btnOpcao4.setVisible(true);
+                        continue;
+                    }
+                    
+                    
+                }
+   
+            }
+        } catch (Exception ex)
+        {
+            Logger.getLogger(frmGame.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_formWindowOpened
 
     private void executaEscolha(int num)
     {
