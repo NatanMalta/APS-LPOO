@@ -7,7 +7,7 @@ public class Arquivo
     public String ler(String nome) throws Exception
     {
         String retorno = "";
-        FileReader arquivo = new FileReader("../Roteiro/)" + nome + ".txt");
+        FileReader arquivo = new FileReader(getClass().getClassLoader().getResource( nome + ".txt").getFile());
         int i;
         while ((i = arquivo.read()) != -1)
         {
