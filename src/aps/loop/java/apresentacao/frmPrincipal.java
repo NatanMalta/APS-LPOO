@@ -34,7 +34,6 @@ public class frmPrincipal extends javax.swing.JFrame
     {
 
         lblNomeJogo = new javax.swing.JLabel();
-        btnOpcoes = new javax.swing.JButton();
         btnJogar = new javax.swing.JButton();
         btnSair = new javax.swing.JButton();
 
@@ -42,16 +41,7 @@ public class frmPrincipal extends javax.swing.JFrame
         setTitle("JOGO");
 
         lblNomeJogo.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
-        lblNomeJogo.setText("JOGO");
-
-        btnOpcoes.setText("Opções");
-        btnOpcoes.addActionListener(new java.awt.event.ActionListener()
-        {
-            public void actionPerformed(java.awt.event.ActionEvent evt)
-            {
-                btnOpcoesActionPerformed(evt);
-            }
-        });
+        lblNomeJogo.setText("Evil awakened");
 
         btnJogar.setText("Jogar");
         btnJogar.addActionListener(new java.awt.event.ActionListener()
@@ -76,17 +66,15 @@ public class frmPrincipal extends javax.swing.JFrame
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
+                .addGap(94, 94, 94)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(166, 166, 166)
-                        .addComponent(lblNomeJogo))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(94, 94, 94)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(btnOpcoes, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btnJogar, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btnSair, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                    .addComponent(btnJogar, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnSair, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(94, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(lblNomeJogo)
+                .addGap(111, 111, 111))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -96,10 +84,8 @@ public class frmPrincipal extends javax.swing.JFrame
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(btnJogar)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(btnOpcoes)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnSair)
-                .addContainerGap(50, Short.MAX_VALUE))
+                .addContainerGap(60, Short.MAX_VALUE))
         );
 
         pack();
@@ -113,13 +99,8 @@ public class frmPrincipal extends javax.swing.JFrame
 
     private void btnJogarActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_btnJogarActionPerformed
     {//GEN-HEADEREND:event_btnJogarActionPerformed
-        ControleJanelas objJanelas = new ControleJanelas("Cena");
+        ControleJanelas objJanelas = new ControleJanelas("Game");
     }//GEN-LAST:event_btnJogarActionPerformed
-
-    private void btnOpcoesActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_btnOpcoesActionPerformed
-    {//GEN-HEADEREND:event_btnOpcoesActionPerformed
-         ControleJanelas objJanelas = new ControleJanelas("Cena");
-    }//GEN-LAST:event_btnOpcoesActionPerformed
 
     /**
      * @param args the command line arguments
@@ -168,7 +149,6 @@ public class frmPrincipal extends javax.swing.JFrame
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnJogar;
-    private javax.swing.JButton btnOpcoes;
     private javax.swing.JButton btnSair;
     private javax.swing.JLabel lblNomeJogo;
     // End of variables declaration//GEN-END:variables
