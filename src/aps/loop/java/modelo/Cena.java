@@ -6,6 +6,7 @@ import javax.swing.JOptionPane;
 public class Cena
 {
     private String historia;
+    private int caretHistoria;
     private long numLinhasHistoria;
     private List<Escolha> escolhas;
     private String inicial = "0";
@@ -53,6 +54,11 @@ public class Cena
     public void setHistoria(String historia)
     {
         this.historia = historia;
+    }
+        
+    public int getCaretHistoria()
+    {
+        return caretHistoria;
     }
 
     public String lerCena(String nome) throws Exception

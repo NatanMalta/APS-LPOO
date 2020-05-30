@@ -12,13 +12,13 @@ package aps.loop.java.apresentacao;
  *
  * @author admin
  */
-public class frmPrincipal extends javax.swing.JFrame
+public class frmPrincipal1 extends javax.swing.JFrame
 {
 
     /**
      * Creates new form frmPrincipal
      */
-    public frmPrincipal()
+    public frmPrincipal1()
     {
         initComponents();
     }
@@ -33,7 +33,6 @@ public class frmPrincipal extends javax.swing.JFrame
     private void initComponents()
     {
 
-        jPanel1 = new javax.swing.JPanel();
         lblNomeJogo = new javax.swing.JLabel();
         btnJogar = new javax.swing.JButton();
         btnSair = new javax.swing.JButton();
@@ -42,18 +41,10 @@ public class frmPrincipal extends javax.swing.JFrame
         setTitle("Evil Awakened");
         setResizable(false);
 
-        jPanel1.setBackground(new java.awt.Color(43, 43, 43));
-        jPanel1.setForeground(new java.awt.Color(60, 63, 65));
-
         lblNomeJogo.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
-        lblNomeJogo.setForeground(new java.awt.Color(186, 186, 166));
         lblNomeJogo.setText("Evil Awakened");
 
-        btnJogar.setBackground(new java.awt.Color(75, 82, 85));
-        btnJogar.setForeground(new java.awt.Color(186, 186, 166));
         btnJogar.setText("Jogar");
-        btnJogar.setBorderPainted(false);
-        btnJogar.setFocusPainted(false);
         btnJogar.addActionListener(new java.awt.event.ActionListener()
         {
             public void actionPerformed(java.awt.event.ActionEvent evt)
@@ -62,11 +53,7 @@ public class frmPrincipal extends javax.swing.JFrame
             }
         });
 
-        btnSair.setBackground(new java.awt.Color(75, 82, 85));
-        btnSair.setForeground(new java.awt.Color(186, 186, 166));
         btnSair.setText("Sair");
-        btnSair.setBorderPainted(false);
-        btnSair.setFocusPainted(false);
         btnSair.addActionListener(new java.awt.event.ActionListener()
         {
             public void actionPerformed(java.awt.event.ActionEvent evt)
@@ -75,42 +62,31 @@ public class frmPrincipal extends javax.swing.JFrame
             }
         });
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(94, 94, 94)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(btnJogar, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(btnSair, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addComponent(lblNomeJogo)
-                        .addGap(18, 18, 18)))
-                .addContainerGap(94, Short.MAX_VALUE))
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(45, Short.MAX_VALUE)
-                .addComponent(lblNomeJogo)
-                .addGap(23, 23, 23)
-                .addComponent(btnJogar)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(btnSair)
-                .addGap(35, 35, 35))
-        );
-
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(94, 94, 94)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(btnJogar, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnSair, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(94, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(lblNomeJogo)
+                .addGap(111, 111, 111))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(51, 51, 51)
+                .addComponent(lblNomeJogo)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(btnJogar)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(btnSair)
+                .addContainerGap(60, Short.MAX_VALUE))
         );
 
         pack();
@@ -150,17 +126,18 @@ public class frmPrincipal extends javax.swing.JFrame
             }
         } catch (ClassNotFoundException ex)
         {
-            java.util.logging.Logger.getLogger(frmPrincipal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(frmPrincipal1.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex)
         {
-            java.util.logging.Logger.getLogger(frmPrincipal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(frmPrincipal1.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex)
         {
-            java.util.logging.Logger.getLogger(frmPrincipal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(frmPrincipal1.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex)
         {
-            java.util.logging.Logger.getLogger(frmPrincipal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(frmPrincipal1.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
@@ -168,7 +145,7 @@ public class frmPrincipal extends javax.swing.JFrame
         {
             public void run()
             {
-                new frmPrincipal().setVisible(true);
+                new frmPrincipal1().setVisible(true);
             }
         });
     }
@@ -176,7 +153,6 @@ public class frmPrincipal extends javax.swing.JFrame
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnJogar;
     private javax.swing.JButton btnSair;
-    private javax.swing.JPanel jPanel1;
     private javax.swing.JLabel lblNomeJogo;
     // End of variables declaration//GEN-END:variables
 }
